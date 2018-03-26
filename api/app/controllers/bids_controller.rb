@@ -4,10 +4,16 @@ class BidsController < ApplicationController
 
   def create
 
+    auction = Auction.find params.require(:auction_id)
+
+    if auction.user == current_user
+      return render json: { error: "Cannot bid on your own Auction" }
+    end
+
     bid_params = params.require(:bid).permit :value
 
     bid = Bid.new bid_params
-    bid.auction = Auction.find params.require(:auction_id)
+    bid.auction = auction;
     bid.user = current_user
 
     if bid.save

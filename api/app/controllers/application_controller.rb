@@ -4,9 +4,19 @@ class ApplicationController < ActionController::API
 
   def current_user
 
-    # TODO: authenticate using JWT
+    token = request.headers['AUTHORIZATION']
 
-    @user ||= User.find_by_id 1
+    begin
+
+      payload = JWT.decode(
+        token,
+        Rails.application.secrets.secret_key_base
+      )&.first
+
+      @user ||= User.find payload['id']
+    rescue Exception => error
+      nil
+    end
   end
 
   def authenticate_user!

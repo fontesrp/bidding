@@ -45,14 +45,14 @@ Temporary Items
 
 ### Node ###
 # Logs
-logs
+client/logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # Runtime data
-pids
+client/pids
 *.pid
 *.seed
 *.pid.lock
@@ -108,19 +108,19 @@ typings/
 *.rbc
 capybara-*.html
 .rspec
-/log
-/tmp
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/public/system
-/coverage/
-/spec/tmp
+/api/log
+/api/tmp
+/api/db/*.sqlite3
+/api/db/*.sqlite3-journal
+/api/public/system
+/api/coverage/
+/api/spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
+api/config/initializers/secret_token.rb
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
@@ -129,8 +129,8 @@ config/initializers/secret_token.rb
 # TODO Comment out this rule if environment variables can be committed
 
 ## Environment normalization:
-/.bundle
-/vendor/bundle
+/api/.bundle
+/api/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
@@ -139,7 +139,7 @@ config/initializers/secret_token.rb
 .rvmrc
 
 # if using bower-rails ignore default bower_components path bower.json files
-/vendor/assets/bower_components
+/api/vendor/assets/bower_components
 *.bowerrc
 bower.json
 
